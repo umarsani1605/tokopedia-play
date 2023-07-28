@@ -1,0 +1,173 @@
+[
+    {
+        "id": 1,
+        "title": "Live Produk 1",
+        "shop": {
+            "shopName": "Toko A",
+            "isOfficial": true
+        },
+        "viewerNumber": 125,
+        "productList": [
+            {
+                "name": "Produk 1",
+                "image": "/cover.jpg",
+                "url": "https://",
+                "price": 50000
+            },
+            {
+                "name": "Produk 2",
+                "image": "/cover.jpg",
+                "url": "https://",
+                "price": 25000
+            },
+            {
+                "name": "Produk 3",
+                "image": "/cover.jpg",
+                "url": "https://",
+                "price": 45000
+            }
+        ],
+        "commentList": [
+            {
+                "username": "User 1",
+                "comment": "Contoh komentar",
+                "timestamp": "2023-07-28 10:30:00"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Live Produk 2",
+        "shop": {
+            "shopName": "Toko B",
+            "isOfficial": false
+        },
+        "viewerNumber": 78,
+        "productList": [
+            {
+                "name": "Produk A",
+                "image": "/cover.jpg",
+                "url": "https://",
+                "price": 75000
+            },
+            {
+                "name": "Produk B",
+                "image": "/cover.jpg",
+                "url": "https://",
+                "price": 35000
+            }
+        ],
+        "commentList": [
+            {
+                "username": "User 2",
+                "comment": "Ini adalah contoh komentar lainnya.",
+                "timestamp": "2023-07-28 12:45:00"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Live Produk 3",
+        "shop": {
+            "shopName": "Toko C",
+            "isOfficial": true
+        },
+        "viewerNumber": 200,
+        "productList": [
+            {
+                "name": "Produk X",
+                "image": "/cover.jpg",
+                "url": "https://",
+                "price": 62000
+            },
+            {
+                "name": "Produk Y",
+                "image": "/cover.jpg",
+                "url": "https://",
+                "price": 42000
+            },
+            {
+                "name": "Produk Z",
+                "image": "/cover.jpg",
+                "url": "https://",
+                "price": 58000
+            }
+        ],
+        "commentList": [
+            {
+                "username": "User 3",
+                "comment": "Saya sangat suka produk-produk ini!",
+                "timestamp": "2023-07-28 15:20:00"
+            },
+            {
+                "username": "User 1",
+                "comment": "Mantap!",
+                "timestamp": "2023-07-28 16:00:00"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Live Produk 4",
+        "shop": {
+            "shopName": "Toko D",
+            "isOfficial": false
+        },
+        "viewerNumber": 50,
+        "productList": [
+            {
+                "name": "Produk M",
+                "image": "/cover.jpg",
+                "url": "https://",
+                "price": 30000
+            }
+        ],
+        "commentList": [
+            {
+                "username": "User 4",
+                "comment": "Produk ini bagus!",
+                "timestamp": "2023-07-28 11:10:00"
+            },
+            {
+                "username": "User 2",
+                "comment": "Harganya cukup terjangkau.",
+                "timestamp": "2023-07-28 12:00:00"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Live Produk 5",
+        "shop": {
+            "shopName": "Toko E",
+            "isOfficial": true
+        },
+        "viewerNumber": 180,
+        "productList": [
+            {
+                "name": "Produk P",
+                "image": "/cover.jpg",
+                "url": "https://",
+                "price": 89000
+            },
+            {
+                "name": "Produk Q",
+                "image": "/cover.jpg",
+                "url": "https://",
+                "price": 120000
+            }
+        ],
+        "commentList": [
+            {
+                "username": "User 5",
+                "comment": "Saya ingin membeli produk ini!",
+                "timestamp": "2023-07-28 17:30:00"
+            },
+            {
+                "username": "User 3",
+                "comment": "Tunggu diskonnya ya!",
+                "timestamp": "2023-07-28 18:00:00"
+            }
+        ]
+    }
+]
