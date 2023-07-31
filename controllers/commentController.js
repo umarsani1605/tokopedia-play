@@ -1,28 +1,46 @@
-import CommentService from "../services/commentService.js";
+import commentService from "../services/commentService.js";
 
-class CommentController {
-  async getComments(req, res) {
+class commentController {
+  static async getComments(req, res) {
     try {
-
-      const id = req.params.videoId;
-  
-      const commentService = new CommentService()
-
-      const comments = await commentService.getComments(id)
+      const {videoId} = req.params;
+      const comments = await commentService.getAll(videoId)
+      res.status(200).json(comments);
     } catch (error) {
-      console.error('Error getting product list:', error);
+      res.status(500).json({
+        message: `Failed to get comments: ${error}`,
+      });
     }
   }
-
-  async addComment(req, res) {
+  
+  static async addComment(req, res) {
     try {
-      const { id, newComment} = req.params;
-      const commentService = new CommentService()
-      const addedComment = await commentService.addComment(id, newComment)
+      const { videoId } = req.params;
+      const { userName, text } = req.body
+
+      if(!userName) {
+        res.status(400).json({
+          message: 'Username can not be empty'
+        })
+        return
+      }
+
+      if(!text) {
+        res.status(400).json({
+          message: 'Comment is empty'
+        })
+        return
+      }
+
+      const addedComment = await commentService.add(videoId, userName, text)
+      
+      res.status(200).json(addedComment);
     } catch (error) {
-      console.log(addedComment);
+      res.status(500).json({
+        message: `Failed to add comments: ${error}`,
+      });
     }
   }
 }
 
-export default CommentController
+export default commentController

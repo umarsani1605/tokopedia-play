@@ -1,32 +1,46 @@
 import Video from '../models/videoModel.js';
 
-class CommentService {
+class commentService {
+  static async getAll(id) {
 
-  async getAllComment(id) {
-
+    try {
+      const video = await Video.findOne({ _id: id })
+      
+      if(!video) {
+        throw new Error("Video is not found. Can't fetch the comment");
+      }
+  
+      const comments = video.comments;
+      return comments
+    } catch (error) {
+      throw new Error("Error loading the comments: ", error);
+    }
+  }
+  
+  static async add(id, username, text) {
     try {
       const video = await Video.findOne({ _id: id })
   
-      const comments = video.comments;
+      if(!video) {
+        throw new Error("Video is not found. Can't add the comment");
+      }
 
-      return comments
-    } catch (error) {
-      console.log(error)
-    }
-    
-  }
+      const newComment = {
+        userName: username,
+        comment: text,
+        timestamp: new Date()
+      }
 
-  async addComment(id, addedComment) {
-    try {
-      const video = await Video.findOne({ _id: id })
-
-      video.comments.push(addedComment)
-
+      console.log(newComment)
+  
+      video.comments.push(newComment)
       video.save()
-    } catch (error) {
       
+      return newComment
+    } catch (error) {
+      throw new Error("Error adding the comment: ", error);
     }
   }
 }
 
-export default CommentService
+export default commentService

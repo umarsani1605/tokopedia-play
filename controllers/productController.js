@@ -1,20 +1,17 @@
-import VideoService from "../services/videoService.js";
-import ProductService from "../services/productService.js";
+import productService from "../services/productService.js";
 
-class ProductController {
-  async getProductsByVideoId(req, res) {
+class productController {
+  static async getProductsByVideoId(req, res) {
     try {
-
-      const id = req.params.videoId;
-  
-      const videoService = new VideoService()
-      const productService = new ProductService()
-
-      const products = await productService.getProductsByVideoId(id)
+      const {videoId} = req.params;
+      const products = await productService.getAllById(videoId)
+      res.status(200).json(products);
     } catch (error) {
-      console.error('Error getting product list:', error);
+      res.status(500).json({
+        message: `Failed to get products: ${error}`,
+      });
     }
   }
 }
 
-export default ProductController
+export default productController

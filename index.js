@@ -29,8 +29,12 @@ async function startApp() {
     throw error;
   }
 
-  migrate()
-
+  try {
+    migrate()
+    console.log("Data migration success");
+  } catch (error) {
+    console.log("Data migration failed: ", error);
+  }
   try {
     app.listen(APP_PORT, () => {
       console.log(`Application is running at http://localhost:${APP_PORT}`);

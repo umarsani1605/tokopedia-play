@@ -1,30 +1,44 @@
 import Video from '../models/videoModel.js'
 
-class VideoService {
-
-  async getAll() {
-    return await Video.find();
-  }
-
-  async getById(id) {
-    let video
+class videoService {
+  static async getAll() {
     try {
-      video = Video.find({id: id});
+      const videos = await Video.find();
+      return videos
     } catch (error) {
-      throw console.log("Error")
+      throw console.log("Error finding video: ", error)
     }
-    return video;
   }
-
-  async addVideo(video) {
-    Video.create(video);
-    return video;
+  
+  static async getById(id) {
+    try {
+      const video = Video.findOne({_id: id});
+      if(!video) {
+        throw new Error("Video is not found.");
+      }
+      return video;
+    } catch (error) {
+      throw console.log("Error finding video: ", error)
+    }
   }
-
-  async addVideos(videos) {
-    await Video.insertMany(videos);
-    return videos;
+  
+  static async add(video) {
+    try {
+      Video.create(video);
+      return video
+    } catch (error) {
+      throw console.log("Error adding video: ", error)
+    }
+  }
+  
+  static async addMany(videos) {
+    try {
+      await Video.insertMany(videos);
+      return videos;
+    } catch (error) {
+      throw console.log("Error adding videos: ", error)
+    }
   }
 }
 
-export default VideoService
+export default videoService
